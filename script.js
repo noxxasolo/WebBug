@@ -76,13 +76,27 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Set profile info sesuai format Rafi
+    // Tambah elemen waktu realtime di bawah profil info
+    const timeNowSpan = document.createElement('div');
+    timeNowSpan.id = 'timeNow';
+    timeNowSpan.style.marginTop = '10px';
+    timeNowSpan.style.fontWeight = 'normal';
+    profileInfo.parentElement.insertBefore(timeNowSpan, profileInfo.nextSibling);
+
+    // Set profile info & waktu real-time
     function updateProfileInfo() {
+      profileInfo.textContent =
+        `Username: ${userData.username}\nPassword: ${userData.password}\nExp: ${userData.exp || 'tidak ada'}`;
       const now = new Date();
-      profileInfo.textContent = 
-        `Username: ${userData.username}\nPassword: ${userData.password}\nExp: ${userData.exp || 'tidak ada'}\nWaktu Hari ini: ${now.toLocaleTimeString()}`;
+      timeNowSpan.textContent = `Waktu Hari ini: ${now.toLocaleTimeString()}`;
     }
     updateProfileInfo();
+
+    // Update waktu setiap detik
+    setInterval(() => {
+      const now = new Date();
+      timeNowSpan.textContent = `Waktu Hari ini: ${now.toLocaleTimeString()}`;
+    }, 1000);
 
     // Logout button
     qs('#logoutBtn').addEventListener('click', () => {
@@ -94,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.showSection = function(id) {
       qsa('.section').forEach(sec => sec.style.display = 'none');
       const target = qs('#' + id);
-      if(target) target.style.display = 'block';
+      if(target) target.style.display = 'block');
       window.scrollTo({top: 0, behavior: 'smooth'});
 
       if(id === 'bug') {
@@ -112,15 +126,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const bugResult = qs('#bugResult');
     const bugBackBtn = qs('#bugBackBtn');
     const targetNumberInput = qs('#targetNumber');
+    const bugTime = qs('#bugTime');
 
     let currentBugType = null;
 
     function showBugSelector() {
       currentBugType = null;
       bugResult.textContent = '';
+      bugTime.textContent = '';
       bugForm.style.display = 'none';
       bugSelector.style.display = 'flex';
       targetNumberInput.value = '';
+      clearInterval(window.bugTimeInterval);
     }
 
     // Klik tombol bug type → tampil form kirim bug
@@ -131,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bugSelector.style.display = 'none';
         bugForm.style.display = 'block';
         bugResult.textContent = '';
+        bugTime.textContent = '';
         targetNumberInput.value = '';
         targetNumberInput.focus();
       });
@@ -140,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.sendBug = async function(e) {
       e.preventDefault();
       bugResult.textContent = '';
+      bugTime.textContent = '';
       const number = targetNumberInput.value.trim();
 
       if (!currentBugType || !number) {
@@ -160,10 +179,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await res.json();
 
         const now = new Date();
-        bugResult.textContent = 
-          `Success bug type ${currentBugType.toUpperCase()}\nTarget: ${number}\nWaktu: ${now.toLocaleString()}\nResponse: ${JSON.stringify(data)}`;
+        bugResult.textContent =
+          `Success bug type ${currentBugType.toUpperCase()}\nTarget: ${number}\nResponse: ${JSON.stringify(data)}`;
+
+        bugTime.textContent = `Waktu: ${now.toLocaleTimeString()}`;
+
+        // Update waktu live setiap detik
+        clearInterval(window.bugTimeInterval);
+        window.bugTimeInterval = setInterval(() => {
+          const nowLive = new Date();
+          bugTime.textContent = `Waktu: ${nowLive.toLocaleTimeString()}`;
+        }, 1000);
+
       } catch (err) {
         bugResult.textContent = `Error mengirim bug type ${currentBugType.toUpperCase()}`;
+        bugTime.textContent = '';
+        clearInterval(window.bugTimeInterval);
       }
     };
 
