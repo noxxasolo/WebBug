@@ -6,53 +6,47 @@ function qsa(sel, root = document) { return Array.from((root || document).queryS
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Jika halaman punya form login
-  const loginForm = qs('#loginForm');
-  if (loginForm) {
-    const msg = qs('#msg');
-    const userInput = qs('#username');
-    const passInput = qs('#password');
-    const demoBtn = qs('#demoBtn');
+  const loginForm = document.querySelector('#loginForm');
+  if (!loginForm) return;
 
-    // Demo (untuk testing lokal)
-    demoBtn?.addEventListener('click', () => {
-      userInput.value = 'demo';
-      passInput.value = 'demo';
-    });
+  const msg = document.querySelector('#msg');
+  const userInput = document.querySelector('#username');
+  const passInput = document.querySelector('#password');
 
-    loginForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      msg.style.display = 'none';
-      const user = userInput.value.trim();
-      const pass = passInput.value.trim();
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    msg.style.display = 'none';
 
-      if (!user || !pass) {
-        msg.textContent = 'Isi username & password';
-        msg.style.display = 'block';
-        return;
-      }
+    const user = userInput.value.trim();
+    const pass = passInput.value.trim();
 
-      try {
-        const res = await fetch(RAW_GITHUB_URL);
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
-        // data diasumsikan array object dengan fields: username, password, exp, dll.
-        const found = (Array.isArray(data) ? data : []).find(acc => acc.username === user && acc.password === pass);
+    if (!user || !pass) {
+      msg.textContent = 'Isi username & password';
+      msg.style.display = 'block';
+      return;
+    }
 
-        if (found) {
-          localStorage.setItem('userData', JSON.stringify(found));
-          window.location.href = 'main.html';
-        } else {
-          msg.textContent = 'Invalid credentials';
-          msg.style.display = 'block';
-        }
-      } catch (err) {
-        console.error(err);
-        msg.textContent = 'Error connecting to server';
+    try {
+      const res = await fetch(RAW_GITHUB_URL);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+
+      const found = data.find(acc => acc.username === user && acc.password === pass);
+
+      if (found) {
+        localStorage.setItem('userData', JSON.stringify(found));
+        window.location.href = 'main.html';
+      } else {
+        msg.textContent = 'Invalid credentials';
         msg.style.display = 'block';
       }
-    });
-  }
+    } catch (err) {
+      console.error(err);
+      msg.textContent = 'Error connecting to server';
+      msg.style.display = 'block';
+    }
+  });
+});
 
   /* -------------------------------------------------
      KODE YANG BERJALAN DI HALAMAN MAIN (main.html)
