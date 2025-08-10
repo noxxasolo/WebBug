@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+.login-bg {
+  height: 100vh;
+  background: linear-gradient(-45deg, #000, #0044ff, #00ccff, #000);
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-bg {
+  background: #111;
+  min-height: 100vh;
+}
+@keyframes gradient {
+  0% {background-position:0% 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0% 50%}
+}
+.card {
+  background: rgba(0,0,0,0.7);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+.github-logo {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.field {
+  margin-bottom: 15px;
+}
+input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+.primary {
+  padding: 10px;
+  width: 100%;
+  background: #00ccff;
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+header {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+}
+#menuBtn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+#dropdownMenu {
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  background: #222;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.hidden { display: none; }
+nav {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+.nav-btn {
+  padding: 10px 20px;
+  background: #0044ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.bug-btn {
+  padding: 15px;
+  background: #222;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
