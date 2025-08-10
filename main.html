@@ -10,16 +10,22 @@
   <div class="bg-anim"></div>
 
   <nav>
+    <!-- Titik tiga kiri sebagai menu developer -->
+    <div class="menu-left">
+      <button id="devBtn" title="Developer">Developer</button>
+      <button id="dev2Btn" title="Developer 2">Developer 2</button>
+    </div>
     <button onclick="showSection('profile')">Profil</button>
     <button onclick="showSection('bug')">Bug</button>
     <button onclick="showSection('thanks')">Thanks To</button>
-    <button id="logoutBtn" style="float:right;">Logout</button>
   </nav>
 
   <main>
     <section id="profile" class="section">
+      <img src="icon.jpg" alt="Logo Profil" class="profile-logo" />
       <h2>Profil</h2>
       <p id="profileInfo"></p>
+      <button id="logoutBtn" class="btn logout-btn">Logout</button>
       <p>Waktu sekarang: <span id="timeNow"></span></p>
     </section>
 
