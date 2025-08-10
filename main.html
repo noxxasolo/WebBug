@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Main Bug Eternal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="main-theme">
+
+  <header>
+    <button id="menuToggle" aria-label="Menu">&#9776;</button>
+    <div id="dropdownMenu" class="hidden">
+      <button id="devBtn">Developer</button>
+      <button id="dev2Btn">Developer 2</button>
+    </div>
+    <h1>Bug Eternal</h1>
+    <button id="logoutBtn">Logout</button>
+  </header>
+
+  <main>
+    <section id="profile" class="section">
+      <img src="file.jpg" alt="Profile Logo" class="profile-logo" />
+      <pre id="profileInfo"></pre>
+    </section>
+
+    <section id="bug" class="section" style="display:none;">
+      <div id="bugSelector" class="bug-selector">
+        <button class="bug-btn" data-type="fc">FC</button>
+        <button class="bug-btn" data-type="crash">Crash</button>
+        <button class="bug-btn" data-type="hs">Blank</button>
+        <button class="bug-btn" data-type="jw">Frezee</button>
+      </div>
+
+      <form id="bugForm" style="display:none;">
+        <h3>Bug Type: <span id="selectedBugType"></span></h3>
+        <label for="targetNumber">Target:</label><br />
+        <input type="text" id="targetNumber" placeholder="62xxx" required /><br /><br />
+        <button type="submit" onclick="sendBug(event)">Kirim Bug</button>
+        <button type="button" id="bugBackBtn">Back</button>
+      </form>
+
+      <pre id="bugResult" class="bug-result"></pre>
+    </section>
+
+    <section id="thanks" class="section" style="display:none;">
+      <h2>Thanks To</h2>
+      <p>Noxxa & Developer Team</p>
+    </section>
+  </main>
+
+  <nav id="bottomNav">
+    <button onclick="showSection('profile')">Profil</button>
+    <button onclick="showSection('bug')">Bug</button>
+    <button onclick="showSection('thanks')">Thanks To</button>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
