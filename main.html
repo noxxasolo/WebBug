@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Eternal X Reapers - Main</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="main-theme">
+  <header>
+    <button id="menuToggle" title="Menu ☰">☰</button>
+    <h1>Eternal X Reapers</h1>
+    <button id="logoutBtn" title="Logout Profil">Logout</button>
+    
+    <!-- Dropdown developer -->
+    <div id="dropdownMenu" class="hidden">
+      <button id="devBtn">Developer</button>
+      <button id="dev2Btn">Developer 2</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Profil Section -->
+    <section id="profile" class="section">
+      <img src="icon.jpg" alt="Logo Profil" class="profile-logo" />
+      <pre id="profileInfo"></pre>
+    </section>
+
+    <!-- Bug Section -->
+    <section id="bug" class="section">
+      <div id="bugSelector" class="bug-selector">
+        <button class="bug-btn" data-type="fc">FC</button>
+        <button class="bug-btn" data-type="crash">Crash</button>
+        <button class="bug-btn" data-type="crash ios">Crash Ios</button>
+        <button class="bug-btn" data-type="blank">Blank</button>
+      </div>
+
+      <form id="bugForm" style="display:none;">
+        <div>
+          <label>Bug type: <span id="selectedBugType"></span></label>
+        </div>
+        <div>
+          <label for="targetNumber">Target:</label>
+          <input type="text" id="targetNumber" placeholder="Masukkan nomor target" required />
+        </div>
+        <div style="margin-top:12px;">
+          <button type="submit">Kirim Bug</button>
+          <button type="button" id="bugBackBtn">Back</button>
+        </div>
+      </form>
+
+      <pre id="bugResult" class="bug-result"></pre>
+      <div id="bugTime" style="margin-top:8px; font-style: italic;"></div>
+    </section>
+
+    <!-- Thanks To Section -->
+    <section id="thanks" class="section" style="padding: 10px; font-size: 1.1rem;">
+      <p>Thanks to all contributors and supporters.</p>
+    </section>
+  </main>
+
+  <nav id="bottomNav">
+    <button onclick="showSection('profile')">Profile Menu</button>
+    <button onclick="showSection('bug')">Bug Menu</button>
+    <button onclick="showSection('thanks')">Thanks To</button>
+  </nav>
+
+<script src="script.js"></script>
+</body>
+</html>
