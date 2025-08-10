@@ -1,66 +1,61 @@
-const RAW_GITHUB_URL = 'https://raw.githubusercontent.com/yourname/repo/branch/database.json'; // <-- ganti ini
-
+const RAW_GITHUB_URL = 'https://raw.githubusercontent.com/noxxasoloera/WebDb/main/database.json';
 
 function qs(sel, root = document) { return root.querySelector(sel); }
 function qsa(sel, root = document) { return Array.from((root || document).querySelectorAll(sel)); }
 
-
 document.addEventListener('DOMContentLoaded', () => {
-  const loginForm = document.querySelector('#loginForm');
-  if (!loginForm) return;
+  // Halaman login
+  const loginForm = qs('#loginForm');
+  if (loginForm) {
+    const msg = qs('#msg');
+    const userInput = qs('#username');
+    const passInput = qs('#password');
 
-  const msg = document.querySelector('#msg');
-  const userInput = document.querySelector('#username');
-  const passInput = document.querySelector('#password');
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.style.display = 'none';
 
-  loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    msg.style.display = 'none';
+      const user = userInput.value.trim();
+      const pass = passInput.value.trim();
 
-    const user = userInput.value.trim();
-    const pass = passInput.value.trim();
+      if (!user || !pass) {
+        msg.textContent = 'Isi username & password';
+        msg.style.display = 'block';
+        return;
+      }
 
-    if (!user || !pass) {
-      msg.textContent = 'Isi username & password';
-      msg.style.display = 'block';
-      return;
-    }
+      try {
+        const res = await fetch(RAW_GITHUB_URL);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
 
-    try {
-      const res = await fetch(RAW_GITHUB_URL);
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      const data = await res.json();
+        const found = (Array.isArray(data) ? data : []).find(acc => acc.username === user && acc.password === pass);
 
-      const found = data.find(acc => acc.username === user && acc.password === pass);
-
-      if (found) {
-        localStorage.setItem('userData', JSON.stringify(found));
-        window.location.href = 'main.html';
-      } else {
-        msg.textContent = 'Invalid credentials';
+        if (found) {
+          localStorage.setItem('userData', JSON.stringify(found));
+          window.location.href = 'main.html';
+        } else {
+          msg.textContent = 'Invalid credentials';
+          msg.style.display = 'block';
+        }
+      } catch (err) {
+        console.error(err);
+        msg.textContent = 'Error connecting to server';
         msg.style.display = 'block';
       }
-    } catch (err) {
-      console.error(err);
-      msg.textContent = 'Error connecting to server';
-      msg.style.display = 'block';
-    }
-  });
-});
+    });
+    return;
+  }
 
-  /* -------------------------------------------------
-     KODE YANG BERJALAN DI HALAMAN MAIN (main.html)
-     ------------------------------------------------- */
+  // Halaman main (main.html)
   const profileInfo = qs('#profileInfo');
   if (profileInfo) {
-    // Cek login
     const userData = JSON.parse(localStorage.getItem('userData') || 'null');
     if (!userData) {
       window.location.href = 'index.html';
       return;
     }
 
-    // tampilkan profil
     function updateProfileView() {
       const now = new Date();
       profileInfo.textContent =
@@ -68,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     updateProfileView();
 
-    // waktu di topbar update tiap 1s
     const timeNow = qs('#timeNow');
     function tick() {
       const now = new Date();
@@ -77,32 +71,27 @@ document.addEventListener('DOMContentLoaded', () => {
     tick();
     setInterval(tick, 1000);
 
-    // logout
     qs('#logoutBtn')?.addEventListener('click', () => {
       localStorage.removeItem('userData');
       window.location.href = 'index.html';
     });
 
-    // show default section
+    // Navigasi section default
     showSection('profile');
+
+    // Form bug
+    qs('#bugForm')?.addEventListener('submit', sendBug);
   }
 });
 
-/* -------------------------------------------------
-   Fungsi navigasi section (dipakai oleh main.html)
-   ------------------------------------------------- */
 function showSection(id) {
   qsa('.section').forEach(sec => sec.style.display = 'none');
   const target = qs('#' + id);
   if (target) target.style.display = 'block';
 
-  // scroll to top of content area for UX
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* -------------------------------------------------
-   Fungsi untuk memanggil API bug (dipanggil dari tombol)
-   ------------------------------------------------- */
 async function sendBug(e) {
   e.preventDefault();
   const type = document.getElementById('bugType').value;
