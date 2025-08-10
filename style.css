@@ -1,0 +1,345 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0; padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* --- LOGIN PAGE --- */
+body.login-page {
+  height: 100vh;
+  background: #00587a; /* Laut biru gelap */
+  position: relative;
+  color: #d0e7f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.ocean-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(135deg, #00587a 0%, #0f3057 40%, #00587a 100%);
+  animation: waveAnim 10s ease-in-out infinite alternate;
+  z-index: -1;
+}
+@keyframes waveAnim {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 0; }
+}
+
+/* Login card */
+.login-card {
+  background: rgba(255 255 255 / 0.1);
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0 0 50px #0f3057aa;
+  text-align: center;
+  width: 320px;
+}
+.login-card h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: #bbe1fa;
+  text-shadow: 1px 1px 5px #062f4f;
+}
+.login-card p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #a2c4dc;
+}
+
+.login-card label {
+  display: block;
+  text-align: left;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.login-card input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  box-shadow: inset 0 0 8px #0a3e66;
+  background-color: #bbe1fa33;
+  color: #03396c;
+  transition: box-shadow 0.3s ease;
+}
+.login-card input:focus {
+  box-shadow: 0 0 15px #bbe1facc;
+  background-color: #e3f2fdcc;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 50px;
+  padding: 0.7rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 700;
+  user-select: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px #4285f4aa;
+  color: #fff;
+  background: linear-gradient(135deg, #4285f4, #1a73e8);
+}
+.btn.primary:hover {
+  box-shadow: 0 0 25px #1a73e8ff;
+  background: linear-gradient(135deg, #1a73e8, #4285f4);
+}
+.msg {
+  margin-top: 1rem;
+  color: #ff7474;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* --- MAIN PAGE --- */
+body.main-page {
+  min-height: 100vh;
+  color: #ddeeff;
+  position: relative;
+  overflow-x: hidden;
+  font-weight: 600;
+}
+
+/* Background gradasi 3D animasi biru muda -> biru tua -> hitam muda -> hitam tua */
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(270deg, #a7c7e7, #2b4f81, #121f2a, #0b121a);
+  background-size: 800% 800%;
+  animation: blueGradientAnim 25s ease infinite alternate;
+  z-index: -1;
+}
+@keyframes blueGradientAnim {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Nav bar */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  background: transparent;
+}
+
+/* Sidebar kiri dengan tombol dev, dev2 (titik 3 kiri) */
+.menu-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-right: 1rem;
+}
+.menu-left button {
+  background: #7b001a;
+  color: #ffa6a6;
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 15px #bb2634;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  width: 70px;
+  text-transform: lowercase;
+}
+.menu-left button:hover {
+  background: #aa3047;
+  box-shadow: 0 0 30px #ff6384cc;
+}
+
+/* Tombol nav biasa */
+.nav-btn {
+  background: transparent;
+  border: 2px solid #bbe1fa;
+  color: #bbe1fa;
+  padding: 0.5rem 1.4rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+.nav-btn:hover {
+  background: #4285f4;
+  color: #fff;
+}
+
+/* Main content sections */
+main {
+  max-width: 720px;
+  margin: 2rem auto 3rem;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 10, 30, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 0 40px #4285f4aa;
+}
+
+/* Sections style */
+.section {
+  display: block;
+}
+
+/* Profil */
+.profile-logo {
+  display: block;
+  margin: 0 auto 1rem;
+  max-width: 150px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #5c9fffcc;
+  border: 3px solid #8bbcf9;
+}
+#profile h2 {
+  font-weight: 900;
+  text-align: center;
+  color: #bbe1fa;
+  margin-bottom: 0.3rem;
+}
+#profileInfo {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #cde3fa;
+  font-weight: 700;
+  text-align: center;
+  white-space: pre-line;
+  user-select: text;
+}
+
+/* Logout button in profile */
+.logout-btn {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0.7rem 2.5rem;
+  background: #a32424;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff5050cc;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+.logout-btn:hover {
+  background: #db3838;
+  box-shadow: 0 0 30px #ff8080cc;
+}
+
+/* Bug menu */
+.bug-selector {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.bug-btn {
+  flex: 1;
+  padding: 0.8rem 1.3rem;
+  background: #7c9cf0;
+  color: #0b173a;
+  font-weight: 800;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 18px #aec5fa;
+  user-select: none;
+  transition: background-color 0.25s ease;
+}
+.bug-btn:hover {
+  background: #aac4ff;
+  box-shadow: 0 0 25px #aac4ffcc;
+}
+
+/* Bug form */
+#bugForm {
+  text-align: center;
+}
+#bugForm p {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #cee0ff;
+}
+#bugForm label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #d0dbff;
+}
+#bugForm input {
+  width: 60%;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  border: none;
+  font-size: 1rem;
+  box-shadow: inset 0 0 15px #aac4ffbb;
+  background: #e4eaffcc;
+  color: #003177;
+  transition: box-shadow 0.3s ease;
+  text-align: center;
+}
+#bugForm input:focus {
+  box-shadow: 0 0 25px #5596ff;
+  outline: none;
+}
+
+/* Kirim & back button */
+#bugForm .btn.primary {
+  margin-top: 1rem;
+  width: 50%;
+}
+#bugBackBtn {
+  margin-top: 0.8rem;
+  background: #3b5eae;
+  box-shadow: 0 0 18px #3b5eaeaa;
+  color: #d4defa;
+  font-weight: 700;
+  border-radius: 30px;
+  padding: 0.6rem 2rem;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+#bugBackBtn:hover {
+  background: #25457d;
+  box-shadow: 0 0 25px #25457dcc;
+}
+
+/* Result box */
+.result-box {
+  margin-top: 1.5rem;
+  background: #182f63;
+  color: #bdd2ff;
+  padding: 1rem 1.3rem;
+  border-radius: 20px;
+  font-family: monospace;
+  max-height: 280px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  text-align: center;
+  font-weight: 700;
+  user-select: text;
+}

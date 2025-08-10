@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eternal — Login Laut</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+  <div class="ocean-bg"></div>
+
+  <main class="login-card">
+    <h1>Eternal</h1>
+    <p>Silahkan Masukkan Data User Anda</p>
+
+    <form id="loginForm" class="form">
+      <label>
+        Username:
+        <input id="username" name="username" autocomplete="username" required />
+      </label>
+      <label>
+        Password:
+        <input id="password" name="password" type="password" autocomplete="current-password" required />
+      </label>
+      <button type="submit" class="btn primary">Login</button>
+      <p id="msg" class="msg" style="display:none"></p>
+    </form>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
