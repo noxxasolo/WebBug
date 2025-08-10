@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateProfileInfo() {
       const now = new Date();
       profileInfo.textContent = 
-        `\nUsername: ${userData.username}\nPassword: ${userData.password}\nExp: ${userData.exp || 'tidak ada'}\nWaktu Hari ini: ${now.toLocaleTimeString()}`;
+        `Username: ${userData.username}\nPassword: ${userData.password}\nExp: ${userData.exp || 'tidak ada'}\nWaktu Hari ini: ${now.toLocaleTimeString()}`;
     }
     updateProfileInfo();
 
