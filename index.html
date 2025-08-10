@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Bug Eternal X Reapers</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body class="login-page">
+
+  <!-- Background Animation -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- LOGIN CARD -->
+  <div class="card" id="loginCard">
+    <div class="github-logo">
+      <i class="fab fa-github"></i>
+      <span>Sign in with GitHub</span>
+    </div>
+
+    <div class="field">
+      <input id="loginUser" type="text" placeholder="Username GitHub">
+    </div>
+    <div class="field">
+      <input id="loginPass" type="password" placeholder="Password">
+    </div>
+    <div class="field">
+      <button class="primary" id="loginBtn">Login</button>
+    </div>
+    <div id="loginMsg"></div>
+    <div class="note">Animasi hanya di layar login — setelah login halaman menjadi statis.</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
