@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open('https://t.me/noxxasoloo', '_blank');
   });
   dev2Btn?.addEventListener('click', () => {
-    window.open('https://t.me/noxxasoloo', '_blank');
+    window.open('https://t.me/SyakYanRawr', '_blank');
   });
 
   // LOGIN PAGE
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateProfileInfo() {
       const now = new Date();
       profileInfo.textContent = 
-        `Rafi\nUsername: ${userData.username}\nPassword: ${userData.password}\nExp: ${userData.exp || 'tidak ada'}\nWaktu Hari ini: ${now.toLocaleTimeString()}`;
+        `\nUsername: ${userData.username}\nPassword: ${userData.password}\nExp: ${userData.exp || 'tidak ada'}\nWaktu Hari ini: ${now.toLocaleTimeString()}`;
     }
     updateProfileInfo();
 
