@@ -1,0 +1,247 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0; padding: 0;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.04em;
+}
+body, html {
+  height: 100%;
+  background: linear-gradient(135deg, #f4f1ea, #d4ccc3);
+  color: #3a3a3a;
+  user-select: none;
+}
+
+/* Background animasi aesthetic Rafi */
+.bg-anim {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 25% 25%, #ff9a9e88, transparent 60%),
+    radial-gradient(circle at 75% 75%, #fad0c488, transparent 70%),
+    linear-gradient(45deg, #fcb69f, #f5deb3);
+  animation: rafiGlow 12s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes rafiGlow {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.15); }
+  100% { filter: brightness(1); }
+}
+
+/* Card styling */
+.card {
+  background: rgba(255 255 255 / 0.95);
+  padding: 2.5rem;
+  max-width: 420px;
+  margin: 7rem auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(240 192 190 / 0.5);
+  text-align: center;
+  color: #4a4a4a;
+}
+
+/* Header */
+.card-header h1 {
+  font-family: 'Pacifico', cursive;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #db6f77;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 5px #f9b5b5;
+  letter-spacing: 0.12em;
+}
+.muted {
+  color: #a07f7e;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+}
+
+/* Form */
+.form label {
+  display: block;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #7f5f5f;
+  text-align: left;
+}
+.form input, .form select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font-size: 1.15rem;
+  border: 2px solid #db6f77;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: inset 1px 1px 5px #fce9e9;
+}
+.form input:focus, .form select:focus {
+  border-color: #f28c8c;
+  box-shadow: 0 0 10px #fcb9b9;
+  background: #fff5f5;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.8rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 4px 15px rgba(219,111,119,0.5);
+  user-select: none;
+}
+.btn.primary {
+  background-color: #db6f77;
+  color: white;
+  text-shadow: 0 0 6px #f89fa2;
+}
+.btn.primary:hover {
+  background-color: #e58a92;
+  box-shadow: 0 0 25px #e58a92aa;
+  color: #fff;
+}
+
+/* Nav */
+nav {
+  background: transparent;
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  gap: 0.6rem;
+  color: #a05c5c;
+  box-shadow: none;
+  align-items: center;
+  font-weight: 600;
+  user-select: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Menu kiri (developer buttons) */
+.menu-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-right: 1.2rem;
+}
+
+/* Tombol developer */
+.menu-left button {
+  background: #d8757bcc;
+  border: none;
+  padding: 0.35rem 1.1rem;
+  color: #4b1a1d;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 0 15px #db6f77cc;
+  font-size: 0.9rem;
+  width: 110px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+.menu-left button:hover {
+  background: #f0a3a8;
+  box-shadow: 0 0 30px #f0a3a8cc;
+  color: #6b2c2f;
+}
+
+/* Tombol nav biasa */
+nav > button {
+  background: transparent;
+  border: 2px solid #db6f77;
+  color: #b9767a;
+  padding: 0.45rem 1.3rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+nav > button:hover {
+  background-color: #db6f77;
+  color: #fff;
+}
+
+/* Sections */
+.section {
+  max-width: 720px;
+  margin: 2.4rem auto;
+  padding: 1.5rem 2rem;
+  background: rgba(255 230 230 / 0.7);
+  border-radius: 25px;
+  box-shadow: 0 0 28px rgba(219,111,119,0.25);
+  color: #572b2e;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.04em;
+  user-select: text;
+}
+
+/* Profil logo */
+.profile-logo {
+  display: block;
+  max-width: 150px;
+  margin: 0 auto 1.3rem;
+  border-radius: 50%;
+  box-shadow: 0 0 18px #f0a3a8cc;
+  border: 3px solid #db6f77;
+}
+
+/* Tombol logout di profil */
+.logout-btn {
+  background-color: #c75a5e;
+  color: white;
+  border: none;
+  padding: 0.7rem 2.2rem;
+  margin: 1.3rem 0 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 22px #e58a92cc;
+  transition: background-color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  user-select: none;
+}
+.logout-btn:hover {
+  background-color: #f07a7f;
+  box-shadow: 0 0 30px #f07a7f;
+}
+
+/* Msg error */
+.msg {
+  color: #a83f3f;
+  margin-top: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Result box */
+.result-box {
+  background: #fbe9e9;
+  border: 1px solid #f7a5a8;
+  border-radius: 15px;
+  padding: 1.3rem;
+  margin-top: 1.4rem;
+  white-space: pre-wrap;
+  font-family: 'Courier New', Courier, monospace;
+  max-height: 300px;
+  overflow-y: auto;
+  color: #742d2f;
+}
+
+/* Label waktu */
+.time-label {
+  font-style: italic;
+  color: #a94c4f;
+  font-weight: 600;
+  margin-top: 0.6rem;
+  letter-spacing: 0.06em;
+  font-family: 'Montserrat', sans-serif;
+}
