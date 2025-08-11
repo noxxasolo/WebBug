@@ -70,12 +70,20 @@ body.login-theme {
 
 /* ======= MAIN THEME ======= */
 body.main-theme {
-  background: linear-gradient(45deg, #b3d9ff, rgba(0,0,0,0.3), #ff99cc, #003366);
+  background: linear-gradient(
+    45deg,
+    #222222,          /* hitam muda */
+    rgba(255, 255, 255, 0.2),  /* putih sangat transparan */
+    #ff99cc88,        /* merah muda lembut transparan */
+    #eeeeee           /* putih muda */
+  );
   min-height: 100vh;
-  color: white;
+  color: #111;       /* teks hitam gelap supaya kontras */
   display: flex;
   flex-direction: column;
   font-weight: 600;
+  /* Tambahan text shadow supaya teks tetap tajam */
+  text-shadow: 0 0 5px rgba(255, 153, 204, 0.7);
 }
 
 /* HEADER */
