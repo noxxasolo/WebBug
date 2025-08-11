@@ -230,7 +230,7 @@ main {
 
 /* BUG SELECTOR BUTTONS */
 .bug-selector {
-  display: flex;
+  display: grid;
   flex-direction: column;
   gap: 12px;
   max-width: 180px;
