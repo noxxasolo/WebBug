@@ -293,7 +293,7 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(135deg, #7ec8e3, #305f72);
+  background: linear-gradient(135deg, #222222, #eeeeee);
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -304,19 +304,20 @@ main {
 }
 
 #bottomNav button {
-  background: linear-gradient(135deg, #a2d9ff, #436a8e);
-  color: white;
+  background: linear-gradient(135deg, #dddddd, #444444);
+  color: #111;
   font-weight: 700;
   border: none;
   padding: 12px 30px;
   border-radius: 0; /* kotak */
   box-shadow:
-    0 4px 8px rgba(66, 133, 244, 0.7),
+    0 4px 8px rgba(68, 68, 68, 0.7),
     inset 0 -3px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 #bottomNav button:hover {
-  background: linear-gradient(135deg, #64b5f6, #2a4e6d);
+  background: linear-gradient(135deg, #ffffff, #222222);
+  color: #000;
 }
