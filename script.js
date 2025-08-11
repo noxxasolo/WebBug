@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const type = e.target.getAttribute('data-type');
         selectedBugTypeSpan.textContent = type.toUpperCase();
         bugForm.style.display = 'block';
-        bugSelector.style.display = 'none';
+        bugSelector.style.display = 'grid';
         bugResult.textContent = '';
         bugTime.textContent = '';
       }
