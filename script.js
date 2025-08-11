@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const type = e.target.getAttribute('data-type');
         selectedBugTypeSpan.textContent = type.toUpperCase();
         bugForm.style.display = 'block';
-        bugSelector.style.display = 'grid';
+        bugSelector.style.display = 'none';
         bugResult.textContent = '';
         bugTime.textContent = '';
       }
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     bugBackBtn?.addEventListener('click', () => {
       bugForm.style.display = 'none';
-      bugSelector.style.display = 'flex';
+      bugSelector.style.display = 'grid';
       bugResult.textContent = '';
       bugTime.textContent = '';
       qs('#targetNumber').value = '';
